@@ -1,17 +1,13 @@
+#Log for file 
+#DATE         Change   
+#11/17/20     Got rid of validateAnswer and validateType          
+#             and type cast the args to get correct response
+#
+#
+
 def isAgain(answer):
     return answer == 1
 
-def validateAnswer(answer):
-   result = validateType(answer)
-   if result == False:
-       return print("Wrong Type!!!!!!!!!!!!!")
-   return int(answer) == 0 or answer == 1
-
-def validateType(answer):
-    if(type(answer) != int):
-        return False
-    else:
-        True
 
 ascii_name = ''
 MAXIMUM_LENGTH = 6
@@ -31,10 +27,17 @@ while(again):
          "here is your name in ascii characters {}".format(ascii_name))
     
     answer = input("Would you like to enter a different name? 1 for yes 0 for no :")
-    print(validateAnswer(answer))
-    while(not(validateAnswer(answer))):
-        answer = input("No seriously only a 1 or 0: yes or no")
-    again = isAgain(answer)
+
+
+  
+    if int(answer) == 0: 
+        again = False
+    elif int(answer) == 1:
+        again = True
+   
+   
+   
+
 
 
 
